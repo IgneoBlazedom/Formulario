@@ -6,6 +6,6 @@ public class Formulario {
         V.setVisible(true);
     }
     
-    //@author Ignacio Adrián Aguirre Miranda
+    //@author Ignacio Adrian Aguirre Miranda
     
 }
