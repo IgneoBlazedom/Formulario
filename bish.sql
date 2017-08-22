@@ -8,3 +8,5 @@ ApellidoM varchar(15),
 Escuela varchar(15)
 );
 
+show tables;
+

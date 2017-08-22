@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package formulario;
 
+import java.sql.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -84,7 +80,7 @@ public class Ventana extends JFrame implements ActionListener{
             add(compro);
             
             send.addActionListener(this);
-            compro.addActionListener(this);
+            compro.addActionListener(this); //Boton de Comprobacion, no se usa
         }
         
         @Override
@@ -97,10 +93,13 @@ public class Ventana extends JFrame implements ActionListener{
             
             
             if (e.getSource() == send) {
-                
                 JOptionPane.showMessageDialog(this, "Enviado");
-                JOptionPane.showMessageDialog(this, "tic toc");                   
-                JOptionPane.showMessageDialog(this, datos.getNombre());   
+                data objdata = new data();
+                String nombre = objdata.getNombre();
+                String paterno = objdata.getPat();
+                String materno = objdata.getMat();
+                String escuela = objdata.getSkl();
+               
             }
             else if (e.getSource() == compro) {
                 JOptionPane.showMessageDialog(this, "Comprobar");                                  
@@ -109,5 +108,3 @@ public class Ventana extends JFrame implements ActionListener{
    
         }
 }
-
-//copyright China
