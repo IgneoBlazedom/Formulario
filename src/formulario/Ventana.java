@@ -1,5 +1,5 @@
 package formulario;
-
+//importes
 import java.sql.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class Ventana extends JFrame implements ActionListener{
-    
+    //Definición de variables
         private JLabel nom;
         private JTextField tnom;
         private JLabel app;
@@ -22,6 +22,7 @@ public class Ventana extends JFrame implements ActionListener{
         private JButton send;
         private JButton compro;
         
+        //inicializa metodos de configuracion de la ventana
         public Ventana() {
         super();                    
         configurarVentana();        
@@ -38,6 +39,7 @@ public class Ventana extends JFrame implements ActionListener{
         }
         
         private void inicializarComponentes() {
+            //inicializa botones, campos de texto
             nom = new JLabel();
             tnom = new JTextField();
             app = new JLabel();
@@ -56,6 +58,7 @@ public class Ventana extends JFrame implements ActionListener{
             send.setText("Enviar");
             compro.setText("Comprobar");
             
+            //posicion de los componentes
             nom.setBounds(20, 30, 150, 30);//x,y,w,h.
             app.setBounds(20, 60, 150, 30);
             apm.setBounds(20, 90, 150, 30);
@@ -67,7 +70,7 @@ public class Ventana extends JFrame implements ActionListener{
             send.setBounds(210, 160, 100, 30);
             compro.setBounds(210, 190, 100, 30);
             
-            
+            //agrega los componentes a la ventana
             add(nom);        
             add(app);
             add(apm);
@@ -85,13 +88,14 @@ public class Ventana extends JFrame implements ActionListener{
         
         @Override
         public void actionPerformed(ActionEvent e) {
+            //trae lo datos introducidos 
             data datos = new data();            
             datos.setNombre(tnom.getText());
             datos.setPat(tapp.getText());
             datos.setMat(tapm.getText());
             datos.setSkl(tesc.getText());
             
-            
+            //lee los datos y los manda a guardar en la base
             if (e.getSource() == send) {
                 JOptionPane.showMessageDialog(this, "Enviado");
                 data objdata = new data();
@@ -101,6 +105,7 @@ public class Ventana extends JFrame implements ActionListener{
                 String escuela = objdata.getSkl();
                
             }
+            //comprueba que los datos se hayan guardado 
             else if (e.getSource() == compro) {
                 JOptionPane.showMessageDialog(this, "Comprobar");                                  
                 JOptionPane.showMessageDialog(this, datos.getNombre());  
